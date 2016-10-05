@@ -1,0 +1,50 @@
+{
+  "name": "Super Server API Node",
+  "description": "Super server RESTful API with Node.js Express",
+  "keywords": [
+    "super",
+    "productivity",
+  ],
+  "website": "https://hazeorid.com/super-server-api-node",
+  "repository": "https://github.com/hazeorid/super-server-api-node",
+  "logo": "https://github.com/hazeorid/super-server-api-node/raw/master/logo.svg",
+  "success_url": "/api",
+  "scripts": {
+    "postdeploy": "echo 'Deployed!'"
+  },
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "1"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/node",
+  "addons": [
+    "openredis",
+    {
+      "plan": "mongolab:shared-single-small",
+      "as": "MONGO"
+    },
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/mhaidarh/super-server-api-node"
+    }
+  ]
+}

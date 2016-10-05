@@ -1,41 +1,45 @@
-# super-server-api
+# Super Server API Node
 
 [![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-api)
 
-Super server with Express RESTful API
+Super server RESTful API with Node.js Express
 
+## Dependencies
 
+- Node 6+
+- MongoDB
+- PM2
+- Heroku
+- Docker
 
-## dependencies
+## Database
 
-node 6.3.x or later and mongodb
-
-## developing
-
-run mongodd on a separated terminal instance:
-
-```
+```sh
+# general
 mongod
+
+# linux
+sudo service start mongodb
+
+# macos
+lunchy start mongo
 ```
+
+## Running
 
 run the app:
 
-```bash
+```sh
+# development
 npm run dev
-```
 
-the app runs on `localhost:8080`
+# staging
+npm run staging
 
-## production
-
-_you'll likely be consuming mongodb as a service, so make sure you set the env var to connect to it._
-
-```bash
+# production
+# set ENV for MongoDB first
 npm start
 ```
 
+The app runs by default on `localhost:3000`
 
-
-
-
---------------------------------------------------------------------------------

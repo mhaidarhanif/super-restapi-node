@@ -1,7 +1,7 @@
 {
-  "name": "super-server-api",
+  "name": "super-server-api-node",
   "version": "0.1.0",
-  "description": "Super server with Express RESTful API",
+  "description": "Super server RESTful API with Node.js Express",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -10,7 +10,7 @@
   "engines": {
     "node": ">=6"
   },
-  "author": "M Haidar Hanif &ltnpm@mhaidarhanif.com&gt <npm@mhaidarhanif.com>",
+  "author": "M Haidar Hanif <npm@mhaidarhanif.com>",
   "dependencies": {
     "bluebird": "^3.4.1",
     "body-parser": "1.15.2",
@@ -30,6 +30,10 @@
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^6.0.0",
-    "nodemon": "^1.9.2"
+    "feathers-cli": "1.2.7",
+    "jshint": "2.9.3",
+    "mocha": "3.1.0",
+    "nodemon": "^1.9.2",
+    "pm2": "2.0.18"
   }
 }
