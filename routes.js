@@ -1,11 +1,11 @@
 const Router = require('express').Router;
 const router = new Router();
 
-const user  = require('./model/user/user-router');
-const customer  = require('./model/customer/customer-router');
-const item  = require('./model/item/item-router');
-const cart  = require('./model/cart/cart-router');
-const transaction  = require('./model/transaction/transaction-router');
+const user = require('./model/user/user-router');
+const customer = require('./model/customer/customer-router');
+const item = require('./model/item/item-router');
+const cart = require('./model/cart/cart-router');
+const transaction = require('./model/transaction/transaction-router');
 
 
 router.route('/').get((req, res) => {
