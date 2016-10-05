@@ -3,7 +3,11 @@
   "description": "Super server RESTful API with Node.js Express",
   "keywords": [
     "super",
-    "productivity",
+    "server",
+    "api",
+    "node",
+    "express",
+    "productivity"
   ],
   "website": "https://hazeorid.com/super-server-api-node",
   "repository": "https://github.com/hazeorid/super-server-api-node",
@@ -28,7 +32,7 @@
       "size": "free"
     }
   },
-  "image": "heroku/node",
+  "image": "heroku/nodejs",
   "addons": [
     "openredis",
     {
