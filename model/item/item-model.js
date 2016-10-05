@@ -1,4 +1,4 @@
-const Model = require('../../lib/facade');
+const Model = require('../../lib/model');
 const itemSchema  = require('./item-schema');
 
 

@@ -1,5 +1,5 @@
 const Controller = require('../../lib/controller');
-const customerModel  = require('./customer-facade');
+const customerModel  = require('./customer-model');
 
 
 class CustomerController extends Controller {}

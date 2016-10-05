@@ -1,5 +1,5 @@
 const Controller = require('../../lib/controller');
-const cartModel  = require('./cart-facade');
+const cartModel  = require('./cart-model');
 
 
 class CartController extends Controller {}

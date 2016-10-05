@@ -9,7 +9,11 @@ const transaction = require('./model/transaction/transaction-router');
 
 
 router.route('/').get((req, res) => {
-  res.json({ message: 'Welcome to super-server-api API!' });
+  res.json({ message: 'Welcome to the SUPER SERVER' });
+});
+
+router.route('/api').get((req, res) => {
+  res.json({ message: 'Welcome to the SUPER SERVER API!' });
 });
 
 router.use('/api/users', user);

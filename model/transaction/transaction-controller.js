@@ -1,5 +1,5 @@
 const Controller = require('../../lib/controller');
-const transactionModel  = require('./transaction-facade');
+const transactionModel  = require('./transaction-model');
 
 
 class TransactionController extends Controller {}
