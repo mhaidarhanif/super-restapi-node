@@ -12,11 +12,11 @@ router.route('/').get((req, res) => {
   res.json({ message: 'Welcome to super-server-api API!' });
 });
 
-router.use('/user', user);
-router.use('/customer', customer);
-router.use('/item', item);
-router.use('/cart', cart);
-router.use('/transaction', transaction);
+router.use('/api/users', user);
+router.use('/api/customers', customer);
+router.use('/api/items', item);
+router.use('/api/carts', cart);
+router.use('/api/transactions', transaction);
 
 
 module.exports = router;
