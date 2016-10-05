@@ -1,7 +1,7 @@
-const Model = require('../../lib/model');
-const cartSchema  = require('./cart-schema');
+const Model = require('../../lib/facade')
+const cartSchema = require('./cart-schema')
 
 
 class CartModel extends Model {}
 
-module.exports = new CartModel(cartSchema);
+module.exports = new CartModel(cartSchema)

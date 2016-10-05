@@ -1,7 +1,7 @@
-const Model = require('../../lib/model');
-const customerSchema  = require('./customer-schema');
+const Model = require('../../lib/facade')
+const customerSchema  = require('./customer-schema')
 
 
 class CustomerModel extends Model {}
 
-module.exports = new CustomerModel(customerSchema);
+module.exports = new CustomerModel(customerSchema)

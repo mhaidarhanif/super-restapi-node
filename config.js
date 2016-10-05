@@ -7,6 +7,6 @@ const config = {
   mongo: {
     url: process.env.MONGO_DB_URI || 'mongodb://localhost/super-server-api'
   }
-};
+}
 
-module.exports = config;
+module.exports = config
