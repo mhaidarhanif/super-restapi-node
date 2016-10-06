@@ -13,7 +13,7 @@
     "clean": "del 'dist/!(.git*|Procfile)**'",
     "copy": "copy package.json dist && copy src/**/package.json dist/.",
     "coverage": "nyc report -r lcov && opn coverage/lcov-report/index.html",
-    "dev": "nodemon -i '*.test.js' .",
+    "dev": "nodemon -i '*.test.js' src",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md && opn docs/index.html",
     "lint": "eslint 'src/**/*.js'",
     "prod": "npm run build && nodemon -i '*.test.js' -r dotenv-safe/config dist",
