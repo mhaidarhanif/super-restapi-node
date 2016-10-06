@@ -1,3 +1,7 @@
+# ----------------
+# Super Git Ignore
+# ----------------
+
 # Logs
 logs
 *.log

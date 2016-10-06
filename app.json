@@ -1,6 +1,6 @@
 {
   "name": "Super Server API Node",
-  "description": "Super server RESTful API with Node.js Express",
+  "description": "Super server RESTful API with Node.js and Express",
   "keywords": [
     "super",
     "server",

@@ -1,5 +1,6 @@
-const controller = require('./transaction-controller')
-const Router = require('express').Router
+import { Router } from 'express'
+import controller from './user.controller'
+
 const router = new Router()
 
 router.route('/')

@@ -1,11 +1,35 @@
-const Router = require('express').Router
+/*
+ * Super Router
+ */
+
+import { Router } from 'express'
+import user from './api/user/user.router'
+
 const router = new Router()
 
-const user = require('./model/user/user-router')
-const customer = require('./model/customer/customer-router')
-const item = require('./model/item/item-router')
-const cart = require('./model/cart/cart-router')
-const transaction = require('./model/transaction/transaction-router')
+/**
+ * @apiDefine master Master access only
+ * You must pass `access_token` parameter or a Bearer Token authorization header
+ * to access this endpoint.
+ */
+/**
+ * @apiDefine admin Admin access only
+ * You must pass `access_token` parameter or a Bearer Token authorization header
+ * to access this endpoint.
+ */
+/**
+ * @apiDefine user User access only
+ * You must pass `access_token` parameter or a Bearer Token authorization header
+ * to access this endpoint.
+ */
+/**
+ * @apiDefine listParams
+ * @apiParam {String} [q] Query to search.
+ * @apiParam {Number{1..30}} [page=1] Page number.
+ * @apiParam {Number{1..100}} [limit=30] Amount of returned items.
+ * @apiParam {String[]} [sort=-createdAt] Order of returned items.
+ * @apiParam {String[]} [fields] Fields to be returned.
+ */
 
 // register blank route
 router.route('/').get((req, res) => {
@@ -15,12 +39,8 @@ router.route('/api').get((req, res) => {
   res.json({ message: 'Welcome to the SUPER SERVER API!' })
 })
 
-// register all models
+// register all APIs
 router.use('/api/users', user)
-router.use('/api/customers', customer)
-router.use('/api/items', item)
-router.use('/api/carts', cart)
-router.use('/api/transactions', transaction)
 
-// export router to be used by server
+// export router to be used by server.js
 module.exports = router
