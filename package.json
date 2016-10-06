@@ -4,28 +4,28 @@
   "version": "0.1.0",
   "private": true,
   "author": "M Haidar Hanif <npm@mhaidarhanif.com>",
-  "main": ".",
+  "main": "src",
   "engines": {
     "node": ">=6"
   },
   "scripts": {
     "build": "npm run clean && npm run copy && npm run transpile",
     "clean": "del 'dist/!(.git*|Procfile)**'",
-    "copy": "copy package.json dist && copy ./**/package.json dist/.",
+    "copy": "copy package.json dist && copy src/**/package.json dist/.",
     "coverage": "nyc report -r lcov && opn coverage/lcov-report/index.html",
     "dev": "nodemon -i '*.test.js' .",
-    "docs": "apidoc -i . -o docs && apidoc-markdown -p docs -o DOCS.md && opn docs/index.html",
-    "lint": "eslint './**/*.js'",
+    "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md && opn docs/index.html",
+    "lint": "eslint 'src/**/*.js'",
     "prod": "npm run build && nodemon -i '*.test.js' -r dotenv-safe/config dist",
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test nyc ava",
-    "test:integration": "npm test './**/*.router.test.js'",
-    "test:unit": "npm test './**/!(*.router*).test.js'",
-    "transpile": "babel . -d dist/. -s inline -i './**/*.test.js'"
+    "test:integration": "npm test 'src/**/*.router.test.js'",
+    "test:unit": "npm test 'src/**/!(*.router*).test.js'",
+    "transpile": "babel src -d dist/src -s inline -i 'src/**/*.test.js'",
   },
   "ava": {
     "files": [
-      "./**/*.test.js"
+      "src/**/*.test.js"
     ],
     "require": [
       "babel-register"
