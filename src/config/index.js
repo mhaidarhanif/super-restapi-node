@@ -1,3 +1,7 @@
+/*
+ * Super Config
+ */
+
 /* eslint-disable no-unused-vars */
 import path from 'path'
 import _ from 'lodash'
@@ -21,12 +25,15 @@ if (process.env.NODE_ENV !== 'production' && !process.env.CI) {
 
 const config = {
   all: {
-    env: process.env.NODE_ENV || 'development',
     root: path.join(__dirname, '../../'),
-    port: process.env.PORT || 9000,
-    ip: process.env.IP || '0.0.0.0',
+    env: process.env.NODE_ENV || 'development',
+    server: {
+      host: process.env.HOST || 'localhost' || '0.0.0.0',
+      port: process.env.PORT || 3000
+    },
     masterKey: requireProcessEnv('MASTER_KEY'),
     mongo: {
+      uri: process.env.MONGO_DB_URI || 'mongodb://localhost/super-server-api-node',
       options: {
         db: {
           safe: true
