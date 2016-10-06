@@ -21,7 +21,10 @@ export default (routes) => {
   app.use(helmet())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
-  app.use(morgan('tiny'))
+  app.use(morgan('combined', {
+    skip: function(req, res) {
+      return res.statusCode < 400 }
+  }))
   app.use('/', routes)
   app.use(queryErrorHandler())
   app.use(bodyErrorHandler())
