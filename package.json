@@ -18,7 +18,8 @@
     "lint": "eslint 'src/**/*.js'",
     "prod": "npm run build && nodemon -i '*.test.js' -r dotenv-safe/config dist",
     "start": "node .",
-    "standard": "standard --verbose | snazzy",
+    "standard": "standard --verbose . | snazzy",
+    "sync": "browser-sync start --server --files dist/*",
     "test": "cross-env NODE_ENV=test nyc ava",
     "test:integration": "npm test 'src/**/*.router.test.js'",
     "test:unit": "npm test 'src/**/!(*.router*).test.js'",
@@ -83,13 +84,15 @@
     "opn-cli": "^3.1.0",
     "sinon": "^1.17.5",
     "supertest": "^2.0.0",
-    "supertest-as-promised": "^4.0.0"
+    "supertest-as-promised": "^4.0.0",
+    "uuid": "2.0.3"
   },
   "devDependencies": {
     "babel-runtime": "^6.11.6",
     "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
     "bodymen": "^1.0.1",
+    "browser-sync": "2.17.0",
     "compression": "^1.6.2",
     "cors": "^2.7.1",
     "eslint": "^3.2.2",
