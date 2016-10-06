@@ -2,6 +2,7 @@
 
 [![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg?style=flat-square)](https://github.com/ndelvalle/generator-api)
 [![generator-rest](https://img.shields.io/badge/built%20with-generator--rest-green.svg?style=flat-square)](https://github.com/ndelvalle/generator-rest)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com)
 
 Super server RESTful API with:
 
@@ -135,20 +136,20 @@ cd dist
 git init
 
 # create a new heroku app
-heroku apps:create my-new-app
+heroku apps:create super-app
 
 # add heroku remote reference to the local repository
-heroku git:remote --app my-new-app
+heroku git:remote --app super-app
 
 # add the MongoLab addon to the heroku app
 heroku addons:create mongolab
 
 # set the environment variables to the heroku app (see the .env file in root directory)
-heroku config:set MASTER_KEY=masterKey JWT_SECRET=jwtSecret
+heroku config:set MASTER_KEY=SUPERMASTER JWT_SECRET=SUPERSECRET
 
 # commit and push the build files
 git add -A
-git commit -m "Some commit message"
+git commit -m "SUPER COMMIT"
 git push heroku master
 
 # open the deployed app in the browser
@@ -161,7 +162,7 @@ The second time you deploy, you just need to:
 npm run build
 cd dist
 git add -A
-git commit -m "Some commit message"
+git commit -m "SUPER COMMIT"
 git push heroku master
 heroku open
 ```

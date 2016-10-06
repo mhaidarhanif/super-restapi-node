@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
 import compression from 'compression'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
@@ -11,15 +12,17 @@ export default (routes) => {
   const app = express()
 
   /* istanbul ignore next */
-  if (env === 'production' || env === 'development') {
+  if (env === 'development' || env === 'production') {
     app.use(cors())
     app.use(compression())
     app.use(morgan('dev'))
   }
 
-  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(helmet())
+  app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
-  app.use(routes)
+  app.use(morgan('tiny'))
+  app.use('/', routes)
   app.use(queryErrorHandler())
   app.use(bodyErrorHandler())
 

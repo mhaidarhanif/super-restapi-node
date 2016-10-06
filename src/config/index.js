@@ -33,7 +33,6 @@ const config = {
     },
     masterKey: requireProcessEnv('MASTER_KEY'),
     mongo: {
-      uri: process.env.MONGO_DB_URI || 'mongodb://localhost/super-server-api-node',
       options: {
         db: {
           safe: true
@@ -41,27 +40,27 @@ const config = {
       }
     }
   },
-  test: {
-    mongo: {
-      uri: 'mongodb://localhost/super-server-rest-yo-test',
-      options: {
-        debug: false
-      }
-    }
-  },
   development: {
     mongo: {
-      uri: 'mongodb://localhost/super-server-rest-yo-dev',
+      uri: 'mongodb://localhost/super-server-api-node',
       options: {
         debug: true
       }
     }
   },
+  test: {
+    mongo: {
+      uri: 'mongodb://localhost/super-server-api-node',
+      options: {
+        debug: false
+      }
+    }
+  },
   production: {
     ip: process.env.IP || undefined,
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8000,
     mongo: {
-      uri: process.env.MONGODB_URI || 'mongodb://localhost/super-server-rest-yo'
+      uri: process.env.MONGODB_URI || 'mongodb://localhost/super-server-api-node'
     }
   }
 }
