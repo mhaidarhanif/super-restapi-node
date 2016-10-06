@@ -1,7 +1,7 @@
 # Super Server API Node
 
-[![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-api)
-[![generator-rest](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-rest)
+[![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg?style=flat-square)](https://github.com/ndelvalle/generator-api)
+[![generator-rest](https://img.shields.io/badge/built%20with-generator--rest-green.svg?style=flat-square)](https://github.com/ndelvalle/generator-rest)
 
 Super server RESTful API with:
 
