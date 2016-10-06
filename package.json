@@ -11,17 +11,17 @@
   "scripts": {
     "build": "npm run clean && npm run copy && npm run transpile",
     "clean": "del 'dist/!(.git*|Procfile)**'",
-    "copy": "copy package.json dist && copy src/**/package.json dist/.",
+    "copy": "copy package.json dist && copy src/**/package.json dist/src",
     "coverage": "nyc report -r lcov && opn coverage/lcov-report/index.html",
-    "dev": "nodemon -i '*.test.js' src",
+    "dev": "nodemon -i '*.test.js' .",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md && opn docs/index.html",
     "lint": "eslint 'src/**/*.js'",
     "prod": "npm run build && nodemon -i '*.test.js' -r dotenv-safe/config dist",
-    "start": "node server.js",
+    "start": "node .",
     "test": "cross-env NODE_ENV=test nyc ava",
     "test:integration": "npm test 'src/**/*.router.test.js'",
     "test:unit": "npm test 'src/**/!(*.router*).test.js'",
-    "transpile": "babel src -d dist/src -s inline -i 'src/**/*.test.js'",
+    "transpile": "babel src -d dist/src -s inline -i 'src/**/*.test.js'"
   },
   "ava": {
     "files": [
