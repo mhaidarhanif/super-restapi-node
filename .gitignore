@@ -2,6 +2,8 @@
 # Super Git Ignore
 # ----------------
 
+docs
+
 # Logs
 logs
 *.log

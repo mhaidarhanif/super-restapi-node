@@ -24,7 +24,12 @@ test.afterEach.always(async (t) => {
 test.serial('POST /users 201', async (t) => {
   const { status, body } = await request(app())
     .post('/')
-    .send({ username: 'test', name: 'test', email: 'test', password: 'test' })
+    .send({
+      username: 'test',
+      name: 'test',
+      email: 'test',
+      password: 'test'
+    })
   t.true(status === 201)
   t.true(typeof body === 'object')
   t.true(body.username === 'test')
@@ -59,7 +64,12 @@ test.serial('PUT /users/:id 200', async (t) => {
   const { user } = t.context
   const { status, body } = await request(app())
     .put(`/${user.id}`)
-    .send({ username: 'test', name: 'test', email: 'test', password: 'test' })
+    .send({
+      username: 'test',
+      name: 'test',
+      email: 'test',
+      password: 'test'
+    })
   t.true(status === 200)
   t.true(typeof body === 'object')
   t.true(body.id === user.id)
@@ -72,7 +82,12 @@ test.serial('PUT /users/:id 200', async (t) => {
 test.serial('PUT /users/:id 404', async (t) => {
   const { status } = await request(app())
     .put('/123456789098765432123456')
-    .send({ username: 'test', name: 'test', email: 'test', password: 'test' })
+    .send({
+      username: 'test',
+      name: 'test',
+      email: 'test',
+      password: 'test'
+    })
   t.true(status === 404)
 })
 

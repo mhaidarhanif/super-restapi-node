@@ -1,27 +1,27 @@
-import _ from 'lodash'
-import { success, notFound } from '../services/response/'
+// import _ from 'lodash'
+// import { success, notFound } from '../services/response/'
 
 class Controller {
 
-  constructor(model) {
+  constructor (model) {
     this.model = model
   }
 
-  find(req, res, next) {
+  find (req, res, next) {
     return this.model
       .find(req.query)
       .then(collection => res.status(200).json(collection))
       .catch(err => next(err))
   }
 
-  findOne(req, res, next) {
+  findOne (req, res, next) {
     return this.model
       .findOne(req.query)
       .then(doc => res.status(200).json(doc))
       .catch(err => next(err))
   }
 
-  findById(req, res, next) {
+  findById (req, res, next) {
     return this.model
       .findById(req.params.id)
       .then(doc => {
@@ -33,14 +33,14 @@ class Controller {
       .catch(err => next(err))
   }
 
-  create(req, res, next) {
+  create (req, res, next) {
     this.model
       .create(req.body)
       .then(doc => res.status(201).json(doc))
       .catch(err => next(err))
   }
 
-  update(req, res, next) {
+  update (req, res, next) {
     const conditions = { _id: req.params.id }
     this.model
       .update(conditions, req.body)
@@ -53,7 +53,7 @@ class Controller {
       .catch(err => next(err))
   }
 
-  remove(req, res, next) {
+  remove (req, res, next) {
     this.model
       .remove(req.params.id)
       .then(doc => {

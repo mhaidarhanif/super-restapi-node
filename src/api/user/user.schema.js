@@ -1,10 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 import AutoIncrement from 'mongoose-sequence'
 import shortid from 'shortid'
-import Hashids from 'hashids'
 
 // generate hash from number with padding 10
-const hashids = new Hashids('', 10)
+// import Hashids from 'hashids'
+// const hashids = new Hashids('', 10)
 
 // super complete user schema
 const userSchema = new Schema({
@@ -20,8 +20,7 @@ const userSchema = new Schema({
     type: String
   },
   name: {
-    first: String,
-    last: String
+    type: String
   },
   email: {
     required: true,
@@ -51,7 +50,7 @@ userSchema.plugin(AutoIncrement, { inc_field: 'userNumber' })
 
 // custom full view
 userSchema.methods = {
-  view(full) {
+  view (full) {
     const view = {
       // simple view
       id: this._id,

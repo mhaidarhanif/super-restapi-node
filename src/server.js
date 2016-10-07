@@ -9,7 +9,7 @@ import routes from './routes'
 
 const app = express(routes)
 
-const connection = mongoose.connect(mongo.uri)
+mongoose.connect(mongo.uri)
 
 setImmediate(() => {
   app.listen(server.port, server.host, () => {
