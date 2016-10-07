@@ -8,8 +8,12 @@ test.beforeEach(async (t) => {
   await mockgoose(mongo)
   await mongo.connect('')
   const User = mongo.model('User', schema)
-  const user = await User.create({ username: 'test', name: 'test', email: 'test', password: 'test' })
-
+  const user = await User.create({
+    username: 'test',
+    name: 'test',
+    email: 'test',
+    password: 'test'
+  })
   t.context = { ...t.context, User, user }
 })
 

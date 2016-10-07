@@ -2,7 +2,7 @@
  * Super Server
  */
 
-import { env, server, mongo } from './config'
+import {env, server, mongo} from './config'
 import mongoose from './config/mongoose'
 import express from './config/express'
 import routes from './routes'
