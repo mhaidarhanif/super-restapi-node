@@ -6,9 +6,11 @@ Object.keys(mongo.options).forEach((key) => {
   mongoose.set(key, mongo.options[key])
 })
 
+// use bluebird as the promise for mongoose
 mongoose.Promise = Promise
+
 /* istanbul ignore next */
-mongoose.Types.ObjectId.prototype.view = function () {
+mongoose.Types.ObjectId.prototype.view = function() {
   return { id: this.toString() }
 }
 
