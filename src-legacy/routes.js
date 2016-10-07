@@ -1,28 +1,30 @@
+/*
+ * Super Router
+ */
+
 import { Router } from 'express'
-// import our API endpoints
-import user from './api/user'
-import auth from './api/auth'
-import article from './api/article'
+import user from './api/user/user.router'
 
 const router = new Router()
-
-// the comments below are needed to generate the API documentation through `npm run docs`
 
 /**
  * @apiDefine master Master access only
  * You must pass `access_token` parameter or a Bearer Token authorization header
  * to access this endpoint.
  */
+
 /**
  * @apiDefine admin Admin access only
  * You must pass `access_token` parameter or a Bearer Token authorization header
  * to access this endpoint.
  */
+
 /**
  * @apiDefine user User access only
  * You must pass `access_token` parameter or a Bearer Token authorization header
  * to access this endpoint.
  */
+
 /**
  * @apiDefine listParams
  * @apiParam {String} [q] Query to search.
@@ -31,8 +33,17 @@ const router = new Router()
  * @apiParam {String[]} [sort=-createdAt] Order of returned items.
  * @apiParam {String[]} [fields] Fields to be returned.
  */
-router.use('/users', user)
-router.use('/auth', auth)
-router.use('/articles', article)
 
-export default router
+// register blank route
+router.route('/').get((req, res) => {
+  res.json({ message: 'Welcome to the SUPER SERVER' })
+})
+router.route('/api').get((req, res) => {
+  res.json({ message: 'Welcome to the SUPER SERVER API!' })
+})
+
+// register all APIs
+router.use('/api/users', user)
+
+// export router to be used by server.js
+module.exports = router

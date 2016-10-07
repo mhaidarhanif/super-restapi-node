@@ -26,7 +26,7 @@ npm run coverage # open the last test coverage report on the browser
 npm run lint # lint using ESLint
 npm run dev # run the API in development mode
 npm run prod # run the API in production mode
-npm run build # build the project into dist folder
+npm run build # build the project into dist/ folder
 npm run docs # generate API docs
 ```
 

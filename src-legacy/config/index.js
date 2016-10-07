@@ -1,8 +1,13 @@
+/* eslint-disable */
+
+/*
+ * Super Config
+ */
+
 /* eslint-disable no-unused-vars */
 import path from 'path'
 import _ from 'lodash'
 
-// it throws an error if you forget to set the required environment variables
 /* istanbul ignore next */
 const requireProcessEnv = (name) => {
   if (!process.env[name]) {
@@ -11,7 +16,6 @@ const requireProcessEnv = (name) => {
   return process.env[name]
 }
 
-// when not in production, it gets the environment variables from the .env file
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'production' && !process.env.CI) {
   const dotenv = require('dotenv-safe')
@@ -23,13 +27,13 @@ if (process.env.NODE_ENV !== 'production' && !process.env.CI) {
 
 const config = {
   all: {
-    env: process.env.NODE_ENV || 'development',
     root: path.join(__dirname, '../../'),
-    // this way you can start the server like `PORT=3000 IP=127.0.0.1 npm run dev`
-    port: process.env.PORT || 9000,
-    ip: process.env.IP || '0.0.0.0',
+    env: process.env.NODE_ENV || 'development',
+    server: {
+      host: process.env.HOST || 'localhost' || '0.0.0.0',
+      port: process.env.PORT || 3000
+    },
     masterKey: requireProcessEnv('MASTER_KEY'),
-    jwtSecret: requireProcessEnv('JWT_SECRET'),
     mongo: {
       options: {
         db: {
@@ -38,27 +42,27 @@ const config = {
       }
     }
   },
-  test: {
-    mongo: {
-      uri: 'mongodb://localhost/generator-rest-example-test',
-      options: {
-        debug: false
-      }
-    }
-  },
   development: {
     mongo: {
-      uri: 'mongodb://localhost/generator-rest-example-dev',
+      uri: 'mongodb://localhost/super-server-api-node',
       options: {
         debug: true
       }
     }
   },
+  test: {
+    mongo: {
+      uri: 'mongodb://localhost/super-server-api-node',
+      options: {
+        debug: false
+      }
+    }
+  },
   production: {
     ip: process.env.IP || undefined,
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8000,
     mongo: {
-      uri: process.env.MONGODB_URI || 'mongodb://localhost/generator-rest-example'
+      uri: process.env.MONGODB_URI || 'mongodb://localhost/super-server-api-node'
     }
   }
 }
