@@ -4,11 +4,11 @@ import cors from 'cors'
 import compression from 'compression'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-import { errorHandler as queryErrorHandler } from 'querymen'
-import { errorHandler as bodyErrorHandler } from 'bodymen'
-import { env } from './'
+import {errorHandler as queryErrorHandler} from 'querymen'
+import {errorHandler as bodyErrorHandler} from 'bodymen'
+import {env} from './'
 
-export default (routes) => {
+export default(routes) => {
   const app = express()
 
   // force SSL (https) when in production mode
@@ -30,11 +30,13 @@ export default (routes) => {
   }
 
   // parse request body
-  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(bodyParser.urlencoded({extended: false}))
   app.use(bodyParser.json())
+
   // apply our routes
   // you can change this to app.use('/api', routes) for example
   app.use(routes)
+
   // apply querymen and bodymen error handlers, which give us standard json error responses (see
   // https://github.com/diegohaz/querymen and https://github.com/diegohaz/bodymen)
   app.use(queryErrorHandler())

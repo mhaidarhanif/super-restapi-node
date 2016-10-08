@@ -25,9 +25,10 @@ const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
     root: path.join(__dirname, '../../'),
-    // this way you can start the server like `PORT=3000 IP=127.0.0.1 npm run dev`
-    port: process.env.PORT || 9000,
-    ip: process.env.IP || '0.0.0.0',
+    // this way you can start the server like
+    // `PORT=3000 IP=127.0.0.1 npm run dev`
+    port: process.env.PORT || 3000,
+    ip: process.env.IP || '0.0.0.0' || 'localhost',
     masterKey: requireProcessEnv('MASTER_KEY'),
     jwtSecret: requireProcessEnv('JWT_SECRET'),
     mongo: {
@@ -40,7 +41,7 @@ const config = {
   },
   test: {
     mongo: {
-      uri: 'mongodb://localhost/generator-rest-example-test',
+      uri: 'mongodb://localhost/ssan-test',
       options: {
         debug: false
       }
@@ -48,7 +49,7 @@ const config = {
   },
   development: {
     mongo: {
-      uri: 'mongodb://localhost/generator-rest-example-dev',
+      uri: 'mongodb://localhost/ssan-dev',
       options: {
         debug: true
       }
@@ -56,9 +57,9 @@ const config = {
   },
   production: {
     ip: process.env.IP || undefined,
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8000,
     mongo: {
-      uri: process.env.MONGODB_URI || 'mongodb://localhost/generator-rest-example'
+      uri: process.env.MONGODB_URI || 'mongodb://localhost/ssan'
     }
   }
 }

@@ -1,6 +1,6 @@
 import Promise from 'bluebird'
 import mongoose from 'mongoose'
-import { mongo } from '.'
+import {mongo} from '.'
 
 // set the mongo options
 Object.keys(mongo.options).forEach((key) => {
@@ -12,7 +12,7 @@ mongoose.Promise = Promise
 // it creates a view method for those fields which aren't populated
 /* istanbul ignore next */
 mongoose.Types.ObjectId.prototype.view = function () {
-  return { id: this.toString() }
+  return {id: this.toString()}
 }
 
 /* istanbul ignore next */
