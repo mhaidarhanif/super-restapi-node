@@ -49,7 +49,19 @@ lunchy start mongo
 
 --------------------------------------------------------------------------------
 
-## Playing locally
+## API Endpoint Pattern
+
+| Route      | HTTP   | Description
+|------------|--------|-------------
+| /users     | GET    | Get all the users
+| /users     | POST   | Create a user
+| /users/:id | GET    | Get a single user
+| /users/:id | PUT    | Update a user with new info
+| /users/:id | DELETE | Delete a user
+
+--------------------------------------------------------------------------------
+
+## Playing Locally
 
 **Run the server in development mode**
 
@@ -166,6 +178,7 @@ git commit -m "SUPER COMMIT"
 git push heroku master
 heroku open
 ```
+
 --------------------------------------------------------------------------------
 
 ## Directory structure
