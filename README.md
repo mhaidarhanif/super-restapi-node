@@ -4,7 +4,7 @@
 [![generator-rest](https://img.shields.io/badge/built%20with-generator--rest-green.svg?style=flat-square)](https://github.com/ndelvalle/generator-rest)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com)
 
-Super server RESTful API with:
+Super RESTful API with:
 
 - Node.js 6+
 - Express
@@ -18,31 +18,33 @@ Super server RESTful API with:
 ## Running Commands
 
 ```sh
-npm start # default run
-npm test # test using AVA
-npm run test:unit # run unit tests
-npm run test:integration # run integration tests
-npm run coverage # open the last test coverage report on the browser
-npm run lint # lint using ESLint
-npm run dev # run the API in development mode
-npm run prod # run the API in production mode
-npm run build # build the project into dist/ folder
-npm run docs # generate API docs
+npm start  # default run
+npm test   # test using AVA
+npm run test:unit         # run unit tests
+npm run test:integration  # run integration tests
+npm run coverage          # open the last test coverage report on the browser
+npm run lint   # lint using ESLint
+npm run dev    # run the API in development mode
+npm run prod   # run the API in production mode
+npm run build  # build the project into dist/ folder
+npm run docs   # generate API docs
 ```
 
-The app runs by default on `localhost:3000`
+The app runs by default on `http://localhost:3000`
 
 --------------------------------------------------------------------------------
 
-## Setups
+## Setup
 
 ### Database
 
 ```sh
 # general
 mongod
+
 # linux
 sudo service start mongodb
+
 # macos
 lunchy start mongo
 ```
@@ -69,14 +71,14 @@ lunchy start mongo
 $ npm run dev
 ```
 
-If you choose to generate the authentication API, you can start to play with it.
+If you choose to generate the authentication API, you can start to experiment with it.
 
 > Note that creating and authenticating users needs a master key (which is defined in the `.env` file)
 
 **Create a user (sign up):**
 
 ```sh
-curl -X POST http://0.0.0.0:9000/users -d "email=admin@example.com&password=123456&access_token=MASTER_KEY_HERE"
+curl -X POST http://localhost:9000/users -d "email=admin@example.com&password=123456&access_token=MASTER_KEY_HERE"
 ```
 
 It will return something like:
@@ -94,7 +96,7 @@ It will return something like:
 **Authenticate the user (sign in):**
 
 ```sh
-curl -X POST http://0.0.0.0:9000/auth -u admin@example.com:123456 -d "access_token=MASTER_KEY_HERE"
+curl -X POST http://localhost:9000/auth -u admin@example.com:123456 -d "access_token=MASTER_KEY_HERE"
 ```
 
 It will return something like:
@@ -115,7 +117,7 @@ It will return something like:
 Now you can use the `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9` token (it's usually greater than this) to call user protected APIs. For example, you can create a new `article` API using `yo rest:api` and make the `POST /articles` endpoint only accessible to authenticated users. Then, to create a new article you must pass the `access_token` parameter.
 
 ```sh
-curl -X POST http://0.0.0.0:9000/articles -d "title=Awesome&content=Yeah&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+curl -X POST http://localhost:9000/articles -d "title=Awesome&content=Yeah&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
 ```
 
 It will return something like:
